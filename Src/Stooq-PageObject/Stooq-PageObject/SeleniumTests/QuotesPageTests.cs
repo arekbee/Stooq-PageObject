@@ -29,7 +29,7 @@ namespace Stooq_PageObject.SeleniumTests
             var value = driver.FindElement(By.XPath(valueXPath));
             Assert.IsNotNull(value);
             decimal parsedValue = 0;
-            bool parsed = decimal.TryParse(value.Text, out parsedValue);
+            bool parsed = decimal.TryParse(value.Text, System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture, out parsedValue);
             Assert.IsTrue(parsed, "can not parsed value");
             Assert.IsTrue(parsedValue > 0M, "value is not positive");
         }
