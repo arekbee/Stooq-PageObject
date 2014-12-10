@@ -28,7 +28,8 @@ namespace Stooq_PageObject.SeleniumTests
         [TearDown]
         public void TearDown()
         {
-            driver.Quit();
+            if (driver != null)
+                driver.Quit();
         }
 
         public void Title_should_contains(string str, PageObject iPageObject = null)
